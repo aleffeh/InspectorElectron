@@ -1,5 +1,5 @@
-# InspectorWeb
-Web interface for the Inspector project.
+# Inspector Electron
+Electron implementation of Inspector by @pakerwreah
 
 Tool to inspect SQLite databases and intercept network requests from mobile applications.
 
