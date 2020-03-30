@@ -14,9 +14,9 @@ module.exports = {
   rules: {
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'no-debugger': 'error',
-    'camelcase': 'off',
-    'vue/script-indent': ['error', 4, { 'baseIndent': 1, 'switchCase': 1 }],
-    'vue/html-indent': ['error', 4, { 'attribute': 2 }],
+    camelcase: 'off',
+    'vue/script-indent': ['error', 4, { baseIndent: 1, switchCase: 1 }],
+    'vue/html-indent': ['error', 4, { attribute: 2 }],
     'vue/order-in-components': 'error',
     'vue/this-in-template': 'error',
     'vue/no-spaces-around-equal-signs-in-attribute': 'error',
@@ -35,7 +35,7 @@ module.exports = {
     {
       files: ['*.vue'],
       rules: {
-        'indent': 'off'
+        indent: 'off'
       }
     }
   ],
@@ -43,6 +43,6 @@ module.exports = {
     parser: 'babel-eslint'
   },
   globals: {
-    '_': false
+    _: false
   }
 }
