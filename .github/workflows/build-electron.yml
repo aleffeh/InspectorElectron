@@ -21,4 +21,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run electron:build
-
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        # Artifact name
+        name: Release ${{ matrix.platform }}
+        # Directory containing files to upload
+        path: /dist_electron/
