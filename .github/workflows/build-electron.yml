@@ -27,4 +27,4 @@ jobs:
         # Artifact name
         name: Release ${{ matrix.platform }}
         # Directory containing files to upload
-        path: /dist_electron/
+        path: dist_electron
