@@ -25,7 +25,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         filename: 'Release-${{ matrix.platform }}.zip'
-        path: dis_electron
+        path: dist_electron
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
