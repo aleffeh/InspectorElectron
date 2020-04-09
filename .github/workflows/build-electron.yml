@@ -21,16 +21,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run electron:build
-    - name: Archive Release
-      uses: thedoctor0/zip-release@master
-      with:
-        filename: 'Release-${{ matrix.platform }}.zip'
-        path: dist_electron
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        # Artifact name
         name:  'Release-${{ matrix.platform }}'
-        # Directory containing files to upload
-        path: 'Release-${{ matrix.platform }}.zip'
+        path: dist_electron
 
