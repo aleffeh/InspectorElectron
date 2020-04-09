@@ -7,11 +7,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  create-release:
     strategy:
       matrix:
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
+    steps:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -22,6 +23,7 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
+  build:
     strategy:
       matrix:
         node-version: [12.x]
@@ -46,7 +48,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        upload_url: ${{ jobs.create_release.steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: Release-${{ matrix.platform }}.zip
         asset_name: Release-${{ matrix.platform }}
         asset_content_type: application/zip
